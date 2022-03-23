@@ -1,0 +1,66 @@
+
+  {% extends 'base.html' %}
+
+  {% load static %}
+  
+  {% block body %}
+
+<!-- blog section -->
+
+
+ <section class="blog_section ">
+  <div class="container">
+    {% for b in blog %}
+    <div class="heading_container">
+      <h2>{{b.title}}
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="box">
+          <div class="img-box">
+            <img src="{{b.img.url}}" alt="">
+            <h4 class="blog_date">
+              14 <br>
+              July
+            </h4>
+          </div>
+          <div class="detail-box">
+            <h5>
+              Molestiae ad reiciendis dignissimos
+            </h5>
+            <p>{{b.subtitle}}</p>
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="box">
+          <div class="img-box">
+            <img src="{{b.photo.url}}" alt="">
+            <h4 class="blog_date">
+              15 <br>
+              July
+            </h4>
+          </div>
+          <div class="detail-box">
+            <h5>{{b.title2}}
+            </h5>
+            <p>{{b.subtitle2}}
+            </p>
+            <a href="">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}
+
+<!-- end blog section -->

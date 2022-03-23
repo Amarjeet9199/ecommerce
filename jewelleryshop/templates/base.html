@@ -1,0 +1,137 @@
+{% load static %}
+<!doctype html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Healet</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css\fontawesome.min.css' %}"> 
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+  
+<!-- header section strats -->
+
+<header class="header_section">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'shop' %}">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'blog' %}">Blog</a>
+            </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'contact' %}">Contact</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'userlogin' %}">Login</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'add_to_cart' %}">Cart</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'products' %}">Products</a>
+          </li>
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Shopcat
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            {% for k in cat %}
+              <a class="dropdown-item" href="/jwellery/{{k.slug}}">{{k.name}}</a>
+             {% endfor %}
+            </div> 
+          </div>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% for message in messages %}
+  <div class="alert-{{messages.tags}} alert-dismissible fade show" role="alert">
+    <strong>Message :</strong>{{message}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  <!-- end header section -->
+
+
+
+
+  {% block body %}
+
+
+
+  {% endblock %}
+
+    <!-- footer section -->
+    <footer class="footer_section">
+        <div class="container">
+          <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved By
+            <a href="https://html.design/">Free Html Templates</a>
+          </p>
+        </div>
+      </footer>
+
+<!-- footer section -->
+
+  <!-- jQery -->
+  <link rel="stylesheet" href="{% static 'js\fontawesome.min.js' %}">
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- custom js -->
+  <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>
+      
+    
+    
